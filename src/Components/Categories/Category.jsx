@@ -14,6 +14,7 @@ const Category = ({
 }) => {
 	const [isPopupActive, setIsPopupActive] = useState(false);
 	const [properties, setProperties] = useState([]);
+	const [isContextMenu, setIsContextMenu] = useState(false);
 	useEffect(() => {
 		const stuff = async () => {
 			try {
@@ -31,18 +32,41 @@ const Category = ({
 		setIsPopupActive(!isPopupActive);
 	};
 	const handleDelete = async () => {
-		const isOk = window.confirm(
-			`Are you sure you wanna delete category "${title}"?`
-		);
-		if (!isOk) return;
 		await Database.Categories.delete({
 			db: database,
 			id,
 		});
 		setCategories(categories.filter((category) => category.id !== id));
 	};
+	const onContextMenu = (e) => {
+		if (
+			e.target.classList.contains("category") ||
+			e.target.classList.contains("bottom") ||
+			e.target.classList.contains("context-menu")
+		) {
+			e.preventDefault();
+			setIsContextMenu(!isContextMenu);
+		}
+	};
 	return (
-		<div className="category">
+		<div className="category" onContextMenu={onContextMenu}>
+			<div className={"context-menu" + (isContextMenu ? " active" : "")}>
+				<h2>Do you want to delete this category?</h2>
+				<div className="yes-no">
+					<button
+						style={{ backgroundColor: "#56E224" }}
+						onClick={handleDelete}
+					>
+						Yes
+					</button>
+					<button
+						style={{ backgroundColor: "rgb(209, 26, 42)" }}
+						onClick={onContextMenu}
+					>
+						No
+					</button>
+				</div>
+			</div>
 			{isPopupActive && (
 				<NewPropertyPopup
 					category={id}
@@ -54,7 +78,7 @@ const Category = ({
 			)}
 			<div className="top">
 				<h1>{title}</h1>
-				<button onClick={handleDelete}>Delete</button>
+				<button onClick={onContextMenu}>Delete</button>
 			</div>
 			<div className="bottom">
 				{properties.map((property) => (
