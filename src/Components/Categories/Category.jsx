@@ -48,6 +48,9 @@ const Category = ({
 			setIsContextMenu(!isContextMenu);
 		}
 	};
+	const handleDeleteClick = () => {
+		setIsContextMenu(!isContextMenu);
+	};
 	return (
 		<div className="category" onContextMenu={onContextMenu}>
 			<div className={"context-menu" + (isContextMenu ? " active" : "")}>
@@ -61,7 +64,7 @@ const Category = ({
 					</button>
 					<button
 						style={{ backgroundColor: "rgb(209, 26, 42)" }}
-						onClick={onContextMenu}
+						onClick={handleDeleteClick}
 					>
 						No
 					</button>
@@ -78,7 +81,7 @@ const Category = ({
 			)}
 			<div className="top">
 				<h1>{title}</h1>
-				<button onClick={onContextMenu}>Delete</button>
+				<button onClick={handleDeleteClick}>Delete</button>
 			</div>
 			<div className="bottom">
 				{properties.map((property) => (
