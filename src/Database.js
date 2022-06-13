@@ -52,6 +52,13 @@ class Database {
         };
     };
     static Categories = class Catgories {
+        static update = async({ db, id, newData }) => {
+            let data = await Database.Categories.getById({ db, id });
+            data = {...data, ...newData };
+            const txn = db.transaction("categories", "readwrite");
+            const categories = txn.objectStore("categories");
+            categories.put(data, id);
+        };
         static insert = async({ db, title, checklist }) => {
             const txn = db.transaction("categories", "readwrite");
             const categories = txn.objectStore("categories");
@@ -77,6 +84,21 @@ class Database {
             const txn = db.transaction("categories", "readwrite");
             const categories = txn.objectStore("categories");
             await categories.delete(id);
+            const properties = (await Database.Properties.all({ db })).filter(
+                (property) => property.category === id
+            );
+            for (let i = 0; i < properties.length; i++) {
+                const property = properties[i];
+                await Database.Properties.delete({
+                    db,
+                    id: property.id,
+                });
+            }
+        };
+        static getById = async({ db, id }) => {
+            const txn = db.transaction("categories", "readwrite");
+            const categories = txn.objectStore("categories");
+            return await categories.get(id);
         };
     };
     static Checklists = class Checklists {

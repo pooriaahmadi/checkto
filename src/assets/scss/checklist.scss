@@ -94,16 +94,21 @@
                 h1 {
                     font-size: 24px;
                 }
-                button {
-                    background-color: rgb(209, 26, 42);
-                    color: white;
-                    padding: 5px 12px;
-                    font-size: 16px;
-                    font-weight: 500;
-                    border-radius: 5px;
-                    outline: none;
-                    border: none;
-                    cursor: pointer;
+                .controls {
+                    button {
+                        background-color: rgb(209, 26, 42);
+                        color: white;
+                        padding: 5px 12px;
+                        font-size: 16px;
+                        font-weight: 500;
+                        border-radius: 5px;
+                        outline: none;
+                        border: none;
+                        cursor: pointer;
+                        &:first-of-type {
+                            margin-right: 10px;
+                        }
+                    }
                 }
             }
             .bottom {

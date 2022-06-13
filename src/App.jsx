@@ -2,6 +2,7 @@ import { Routes, BrowserRouter, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as idb from "idb";
 import "./App.css";
+import "./assets/scss/responsive.scss";
 import Header from "./Components/Header/Header";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import CheckList from "./Components/CheckList/CheckList";

@@ -1,0 +1,193 @@
+@media only screen and (max-width: 850px) {
+    footer {
+        padding: 15px;
+        >.left {
+            flex-direction: column;
+            align-items: flex-start !important;
+            width: 80%;
+            >h1 {
+                margin-bottom: 10px;
+                font-size: 25px;
+            }
+            >p {
+                font-size: 15px;
+            }
+        }
+        >.right {
+            font-size: 15px;
+        }
+    }
+    .bottom {
+        >.category {
+            width: 100% !important;
+        }
+        >.new-category {
+            height: 60px !important;
+            width: 60px !important;
+            padding: 10px !important;
+        }
+    }
+    .showoff {
+        height: 350px !important;
+        .boxes {
+            .overlay {
+                h1 {
+                    font-size: 18px;
+                }
+                div>img {
+                    width: 80px;
+                    height: 80px;
+                }
+                .social-media {
+                    a {
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+    .aboutus {
+        .description {
+            flex-direction: column;
+            .left {
+                width: 100% !important;
+                h1 {
+                    font-size: 24px;
+                }
+                p {
+                    font-size: 16px !important;
+                    margin-bottom: 20px;
+                }
+            }
+            .right {
+                img {
+                    width: 250px !important;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    .checklist {
+        a,
+        button {
+            font-size: 13px !important;
+        }
+        >.top {
+            >.left {
+                >h1 {
+                    font-size: 25px;
+                }
+            }
+        }
+    }
+    .category {
+        >.bottom {
+            >.property {
+                >h2 {
+                    font-size: 15px !important;
+                }
+            }
+        }
+    }
+    .showoff {
+        height: unset !important;
+        >img {
+            width: 250px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .boxes {
+            position: unset !important;
+            top: unset !important;
+            left: unset !important;
+            flex-direction: column;
+            right: unset !important;
+            .overlay {
+                padding: 20px !important;
+                border-radius: 10px;
+                position: unset !important;
+                width: 100% !important;
+                margin-bottom: 20px;
+                &:last-of-type {
+                    margin-bottom: unset;
+                }
+                >img {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .sidebar-wrapper {
+        .sidebar {
+            .bottom {
+                .picklist {
+                    width: 35px;
+                    height: 35px;
+                    padding: 3px;
+                    h1 {
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+    .checklist {
+        >.top {
+            flex-direction: column;
+            h1 {
+                margin-bottom: 10px;
+            }
+            >.right {
+                a,
+                button {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        .category {
+            >.context-menu {
+                h2 {
+                    text-align: center;
+                    font-size: 20px;
+                }
+            }
+            >.top {
+                flex-direction: column;
+                >h1 {
+                    margin-bottom: 10px;
+                }
+            }
+            >.bottom {
+                >.property {
+                    width: 100% !important;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 490px) {
+    footer {
+        padding: 10px !important;
+        >.left {
+            flex-direction: column;
+            align-items: flex-start !important;
+            width: 80%;
+            >h1 {
+                margin-bottom: 10px;
+                font-size: 20px;
+            }
+            >p {
+                font-size: 13px;
+            }
+        }
+        >.right {
+            font-size: 10px;
+        }
+    }
+}
